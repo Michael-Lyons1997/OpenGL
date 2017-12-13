@@ -17,7 +17,16 @@ private:
 	bool isRunning = false;
 	void initialize();
 	void update();
-	void draw();
+	void drawPoint();
+	void drawLine();
+	void drawLineStrip();
+	void drawLineLoop();
+	void drawTriangle();
+	void drawTriangleStrip();
+	void drawTriangleFan();
+	void drawQuads();
+	void drawQuadStrip();
+	void drawPoly();
 	void unload();
 
 	// // Uncomment for Part 2

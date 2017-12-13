@@ -22,9 +22,51 @@ void Game::run()
 			{
 				isRunning = false;
 			}
+			if (event.type == sf::Event::TextEntered)
+			{
+				if (event.text.unicode == 113)
+				{
+					drawPoint();
+				}
+				if (event.text.unicode == 119)
+				{
+					drawLine();
+				}
+				if (event.text.unicode == 101)
+				{
+					drawLineStrip();
+				}
+				if (event.text.unicode == 114)
+				{
+					drawLineLoop();
+				}
+				if (event.text.unicode == 116)
+				{
+					drawTriangle();
+				}
+				if (event.text.unicode == 121)
+				{
+					drawTriangleStrip();
+				}
+				if (event.text.unicode == 117)
+				{
+					drawTriangleFan();
+				}
+				if (event.text.unicode == 105)
+				{
+					drawQuads();
+				}
+				if (event.text.unicode == 111)
+				{
+					drawQuadStrip();
+				}
+				if (event.text.unicode == 112)
+				{
+					drawPoly();
+				}
+			}
 		}
 		update();
-		draw();
 	}
 
 }
@@ -42,11 +84,14 @@ void Game::update()
 {
 	cout << "Game update" << endl;
 }
-
-void Game::draw()
+void Game::unload()
 {
-	cout << "Game draw" << endl;
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
+	cout << "Cleaning up" << endl;
+}
+
+void Game::drawPoint()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glBegin(GL_POINTS);
 	{
@@ -54,6 +99,55 @@ void Game::draw()
 		glVertex3f(-1.5f, 2.0f, -5.0f);
 		glVertex3f(-2.0f, 1.5f, -5.0f);
 	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawLine()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glBegin(GL_LINES);
+	{
+		glVertex3f(-1.0f, 1.5f, -5.0f);
+		glVertex3f(-1.5f, 2.0f, -5.0f);
+		glVertex3f(-2.0f, 1.5f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawLineStrip()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glBegin(GL_LINE_STRIP);
+	{
+		glVertex3f(-1.0f, 1.5f, -5.0f);
+		glVertex3f(-1.5f, 2.0f, -5.0f);
+		glVertex3f(-2.0f, 1.5f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawLineLoop()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glBegin(GL_LINE_LOOP);
+	{
+		glVertex3f(-1.0f, 1.5f, -5.0f);
+		glVertex3f(-1.5f, 2.0f, -5.0f);
+		glVertex3f(-2.0f, 1.5f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawTriangle()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glBegin(GL_TRIANGLES);
 	{
 		glVertex3f(0.0f, 0.2f, -5.0f);
@@ -61,11 +155,70 @@ void Game::draw()
 		glVertex3f(0.2f, -0.2f, -5.0f);
 	}
 	glEnd();
-	window.display(); 
+	window.display();
 }
 
-void Game::unload()
+void Game::drawTriangleStrip()
 {
-	cout << "Cleaning up" << endl;
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_TRIANGLE_STRIP);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
+	}
+	glEnd();
+	window.display();
 }
 
+void Game::drawTriangleFan()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_TRIANGLE_FAN);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawQuads()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_QUADS);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawQuadStrip()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_QUAD_STRIP);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
+
+void Game::drawPoly()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBegin(GL_POLYGON);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
+	}
+	glEnd();
+	window.display();
+}
