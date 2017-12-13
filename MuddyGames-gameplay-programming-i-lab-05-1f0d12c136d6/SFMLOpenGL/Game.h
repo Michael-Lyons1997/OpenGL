@@ -1,9 +1,8 @@
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
-#include <gl/GL.h>
-#include <gl/GLU.h>
-
+#include <gl/GL.h> 
+#include <gl/GLU.h> 
 using namespace std;
 using namespace sf;
 

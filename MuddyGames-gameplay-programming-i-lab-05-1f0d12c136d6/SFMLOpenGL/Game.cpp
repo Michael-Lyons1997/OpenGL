@@ -14,8 +14,7 @@ void Game::run()
 	Event event;
 
 	while (isRunning) {
-
-		cout << "Game running..." << endl;
+		cout << "Game run" << endl;
 
 		while (window.pollEvent(event))
 		{
@@ -32,7 +31,7 @@ void Game::run()
 
 void Game::initialize()
 {
-	isRunning = true;
+	isRunning = true; 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION); glLoadIdentity(); 
 	gluPerspective(45.0, window.getSize().x / window.getSize().y, 1.0, 500.0); 
@@ -41,18 +40,25 @@ void Game::initialize()
 
 void Game::update()
 {
-	cout << "Update up" << endl;
+	cout << "Game update" << endl;
 }
 
 void Game::draw()
 {
-	cout << "Draw up" << endl;
+	cout << "Game draw" << endl;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
-	glBegin(GL_TRIANGLES); 
-	{ 
-		glVertex3f(0.0, 2.0, -5.0);
-		glVertex3f(-2.0, -2.0, -5.0); 
-		glVertex3f(2.0, -2.0, -5.0); 
+
+	glBegin(GL_POINTS);
+	{
+		glVertex3f(-1.0f, 1.5f, -5.0f);
+		glVertex3f(-1.5f, 2.0f, -5.0f);
+		glVertex3f(-2.0f, 1.5f, -5.0f);
+	}
+	glBegin(GL_TRIANGLES);
+	{
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
+		glVertex3f(0.2f, -0.2f, -5.0f);
 	}
 	glEnd();
 	window.display(); 
