@@ -110,7 +110,6 @@ void Game::drawLine()
 	glBegin(GL_LINES);
 	{
 		glVertex3f(-1.0f, 1.5f, -5.0f);
-		glVertex3f(-1.5f, 2.0f, -5.0f);
 		glVertex3f(-2.0f, 1.5f, -5.0f);
 	}
 	glEnd();
@@ -166,6 +165,7 @@ void Game::drawTriangleStrip()
 		glVertex3f(0.0f, 0.2f, -5.0f);
 		glVertex3f(-0.2f, -0.2f, -5.0f);
 		glVertex3f(0.2f, -0.2f, -5.0f);
+		glVertex3f(0.5f, -0.4f, -5.0f);
 	}
 	glEnd();
 	window.display();
@@ -179,6 +179,11 @@ void Game::drawTriangleFan()
 		glVertex3f(0.0f, 0.2f, -5.0f);
 		glVertex3f(-0.2f, -0.2f, -5.0f);
 		glVertex3f(0.2f, -0.2f, -5.0f);
+		glVertex3f(0.5f, -0.4f, -5.0f);
+		glVertex3f(0.2f, 0.3f, -5.0f);
+		glVertex3f(-0.4f, -0.4f, -5.0f);
+		glVertex3f(0.6f, -0.6f, -5.0f);
+		glVertex3f(0.5f, -0.8f, -5.0f);
 	}
 	glEnd();
 	window.display();
@@ -192,6 +197,8 @@ void Game::drawQuads()
 		glVertex3f(0.0f, 0.2f, -5.0f);
 		glVertex3f(-0.2f, -0.2f, -5.0f);
 		glVertex3f(0.2f, -0.2f, -5.0f);
+		glVertex3f(0.0f, 0.2f, -5.0f);
+		glVertex3f(-0.2f, -0.2f, -5.0f);
 	}
 	glEnd();
 	window.display();
